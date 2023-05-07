@@ -89,13 +89,60 @@ l1 = l1.translate(str.maketrans('qb', 'en'))
 print(l1)
 
 # 41 (소수 판별)
-
+# n미만의 자연수로 나눠보기
+n = 3
+isprime_num = True
+for i in range(2, n):
+    if n % i == 0:
+        isprime_num = False
+        break
+if isprime_num and n != 1:
+    print('소수')
+else:
+    print('소수 아님')
+# 제곱근 이하의 자연수로만 나눠보기
+# i = 2
+# while i ** 2 < n:
+#     if n % i == 0:
+#         isprime_num = False
+#         break
+#     i += 1
 # 42
 import datetime
 print(datetime.date(year = 2020, month = 5, day = 24).weekday())
 
-# 43
+# 43 bin사용하지 않고 10진수 2진수로 변환
+num = 13
+rest = 13
+i = 0
+while 2 ** i <= num:
+        i += 1
+i -= 1
+s = ''
+while i >= 0:
+    if 2 ** i <= rest:
+        rest -= 2 ** i
+        s += '1'
+    else:
+        s += '0'
+    
+    i -= 1
+print(s)
+
+num = 13
+s = ''
+while num:
+    s += str(num % 2)
+    num = num // 2
+s = s[::-1]
+print(s)
+
 # 44
+n = '3849'
+print(sum(map(int, list(n))))
+
 # 45
-# 46
-# 50
+import time
+t = time.time()
+t = int(t // (3600 * 24 * 365)) + 1970
+print(t)
