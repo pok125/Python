@@ -1,4 +1,4 @@
-# 다시 보자 : 53, 55 64, 66, 67, 69
+# 다시 보자 : 53, 55 64, 66, 67, 69, 70
 # 53 괄호 올바른지 판단
 def check_bracket(l):
     if l.count('(') != l.count(')'):
@@ -194,4 +194,28 @@ for i in range(len(prime_list)):
 #     if i in a and n-i in a:
 #         l.append(i)
 #         l.append(n-i)
+
+# 70 행렬의 곱
+def mul_matrix(x, y):
+    first_length = len(x)
+    second_length = len(x[0])
+    
+    if second_length != len(y):
+        return None
+    
+    result = [[0, 0] for _ in range(len(y[0]))]
+    
+    for i in range(first_length):
+        for j in range(second_length):
+            for k in range(second_length):
+                result[i][j] += x[i][k] * y[k][j]
+    return result
+
+a = ([1, 2],
+     [3, 4],)
+b = ([1, 0],
+     [0, 3],)
+
+print(mul_matrix(a, b))
+
 
